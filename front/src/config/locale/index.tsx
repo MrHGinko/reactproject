@@ -45,7 +45,7 @@ function findValById(ids: string[], obj: Locale): any {
 }
 
 // 暴露到外部的写法
-// 达到缩减代码的目的
+// 达到缩减代码的目的	
 export const ID = {
 	header_exit: 'header.exit',
 
@@ -67,8 +67,5 @@ export const ID = {
 
 	// 配置子路由中的breadcrumb
 	breadcrumb_home: 'breadcrumb.home',
-	breadcrumb_editGoods: 'breadcrumb.editGoods',
-	breadcrumb_orderDetail: 'breadcrumb.orderDetail',
-	breadcrumb_editPermission: 'breadcrumb.editPermission',
-	breadcrumb_editAccount: 'breadcrumb.editAccount',
+
 };

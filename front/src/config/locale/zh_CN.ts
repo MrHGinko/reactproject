@@ -23,10 +23,6 @@ const locale: Locale = {
 	},
 	breadcrumb: {
 		home: '首页',
-		editGoods: '编辑商品',
-		orderDetail: '查看订单',
-		editPermission: '编辑权限',
-		editAccount: '编辑账户',
 	},
 };
 

@@ -22,10 +22,6 @@ export interface Locale {
 	};
 	breadcrumb: {
 		home: string;
-		editGoods: string;
-		orderDetail: string;
-		editPermission: string;
-		editAccount: string;
 	};
 	[propName: string]: any;
 }

@@ -2,7 +2,7 @@ import { Action } from 'redux';
 import { Map } from 'immutable';
 
 const initialState = Map({
-	locale: 'enUS',
+	locale: 'zhCN',
 	isLogin: true,
 	userInfo: Map({
 		role: 'admin',

@@ -24,10 +24,6 @@ const locale: Locale = {
 	},
 	breadcrumb: {
 		home: 'home',
-		editGoods: 'goods edit',
-		orderDetail: 'order detail',
-		editPermission: 'edit permission',
-		editAccount: 'edit account',
 	},
 };
 
