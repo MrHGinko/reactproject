@@ -2,10 +2,14 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import thunk from 'redux-thunk';
 import root from './models/root';
+import user from './models/user'
+import task from './models/task'
 
 const reducer = combineReducers({
 	// 添加自己的模块仓库
 	root,
+	task,
+	user,
 });
 
 // 仓库需实现属于自己的数据获取以及方法
