@@ -10,8 +10,9 @@ interface Prop {
 	data: any[];
 }
 
-const ShowTable: React.FC<Prop> = function ShowTable({ status, columns, data }) {
-	const dataDOM = data && <Table columns={columns}  className='table' dataSource={data}  />;
+const ShowTable: React.FC<Prop> = function ShowTable({ status, columns, data}) {
+
+	const dataDOM = data && <Table size={"middle"} rowKey={data=>data._id} columns={columns}  className='table' dataSource={data}  scroll={{x:1100}}/>;
 
 	const contentDOM = useLoading(status, dataDOM, <Empty />);
 

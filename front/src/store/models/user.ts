@@ -23,7 +23,7 @@ export const getUserList = () => (dispatch: Dispatch) => {
 	// 第一步 设置loading
 	const action = setUserData(setUserType.load);
 	dispatch(action);
-
+	console.log('user数据请求中');
 	// 第二步 ajax请求, 分支成功 或 失败
 	ajax.get(API.USER_LIST, {})
 		.then(({ data }) => {

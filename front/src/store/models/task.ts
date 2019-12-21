@@ -46,9 +46,9 @@ export default (state = immutableState, action: Action) => {
 			return state.set(['status', 'loading']);
 		case setTaskType.success:
 			const newState = state.set('task', action.data);
-			return newState.set(['status', 'success']);
+			return newState.set('status', 'success');
 		case setTaskType.fail:
-			return state.set(['status', 'fail']);
+			return state.set('status', 'fail');
 		default:
 			return state;
 	}
