@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 import root from './models/root';
 import user from './models/user'
 import task from './models/task'
+import driver from './models/driver'
 
 const reducer = combineReducers({
 	// 添加自己的模块仓库
 	root,
 	task,
 	user,
+	driver
 });
 
 // 仓库需实现属于自己的数据获取以及方法

@@ -16,7 +16,7 @@ router.get('/driverList', async (req, res) => {
 		  })
 });
 
-router.post('/driverRegiste', (req, res) => {
+router.get('/driverRegiste', (req, res) => {
 	const { info } = req.body;
 	console.log(info);
 
@@ -38,6 +38,9 @@ router.post('/driverRegiste', (req, res) => {
 router.post('/driverAddTask', async (req, res) => {
 	const { id, task } = req.body;
 	console.log(id, task);
+
+	// let id = '5e01d12c3cbf3027ac914a22';
+	// let task = '5e01d3a4ee63033c0c821284';
 
 	let result = await Driver.addTask(id, task);
 	result

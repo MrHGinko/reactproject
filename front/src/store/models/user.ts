@@ -36,6 +36,7 @@ export const getUserList = () => (dispatch: Dispatch) => {
 			dispatch(action);
 		});
 };
+// export const setComment = ()
 
 const initState = {
 	user: [],
@@ -56,4 +57,21 @@ export default (state = immutableState, action: Action) => {
 		default:
 			return state;
 	}
+};
+
+interface comment {
+	text: string;
+	score: number;
+	task: string;
+	user: string
+}
+
+export const setComment = (comment: comment) => {
+	ajax.post(API.USER_COMMENT_API, { comment })
+		.then(({ data }) => {
+			console.log(data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 };

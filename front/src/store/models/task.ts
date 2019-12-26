@@ -18,12 +18,18 @@ const setTaskData = (type: setTaskType, data?: any) => ({
 type Action = ReturnType<typeof setTaskData>;
 
 export const getTaskList = () => (dispatch: Dispatch) => {
-	const action = setTaskData(setTaskType.load);
+	const action = setTaskData(setTaskType.load); //{type, data}
 	dispatch(action);
 
 	ajax.get(API.TASK_LIST, {})
 		.then(({ data }) => {
-			const action = setTaskData(setTaskType.success, data.data);
+			const result = data.data.map((item: any) => {
+				item.createTime = new Date(item.createTime).toLocaleString();
+				item.departureTime = new Date(item.departureTime).toLocaleString();
+				return item;
+			});
+
+			const action = setTaskData(setTaskType.success, result);
 			dispatch(action);
 		})
 		.catch((error) => {
@@ -52,4 +58,14 @@ export default (state = immutableState, action: Action) => {
 		default:
 			return state;
 	}
+};
+
+export const setArrivalTime = function(id: any, time: any) {
+	ajax.post(API.SET_ARRIVALTIME, { id, time })
+		.then(({ data }) => {
+			console.log(data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 };

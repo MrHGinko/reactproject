@@ -28,14 +28,10 @@ const Driver = mongoose.model(
 		},
 
 		// 任务列表
-		taskList: [
-			{
-				task: {
-					type: mongoose.SchemaTypes.ObjectId,
-					ref: 'task',
-				},
-			},
-		],
+		taskList: [{
+			type: mongoose.SchemaTypes.ObjectId,
+			ref: 'task'
+		}],
 	}),
 );
 

@@ -21,8 +21,8 @@ const User = mongoose.model(
 			default: 0,
 		},
 		status: {
-			type: String,
-			default: 'OK',
+			type: Boolean,
+			default: true,
 		},
 
 		comment: [
@@ -33,6 +33,17 @@ const User = mongoose.model(
 				},
 				text: String,
 				score: Number,
+				remark: {
+					type: Boolean,
+					ref: 'task',
+				},
+			},
+		],
+
+		taskList: [
+			{
+				type: mongoose.SchemaTypes.ObjectId,
+				ref: 'task',
 			},
 		],
 	}),
@@ -50,6 +61,7 @@ module.exports.createUser = async (info) => {
 			tel: info.tel,
 
 			comment: [],
+			taskList: [],
 		});
 		return await user.save();
 	}
@@ -59,11 +71,17 @@ module.exports.getUser = async () => {
 	return await User.find();
 };
 
-module.exports.addComment = async (id, comment) => {
-	let { commentList } = await Driver.findById(id);
-	commentList.push(comment);
-	console.log(commentList);
+module.exports.setComment = async (userid, taskid, com) => {
+	let { comment } = await User.findById(userid);
+
+	comment.map((item) => {
+		if (item.task == taskid) {
+			item.text = com.text;
+			item.score = com.score;
+			item.remark = com.remark;
+		}
+	});
 
 	// 注意 评论后还需要将对应订单remark关闭
-	return await User.findByIdAndUpdate(id, { comment: commentList });
+	return await User.findByIdAndUpdate(userid, { comment: comment });
 };

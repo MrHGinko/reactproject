@@ -8,21 +8,23 @@ export interface ResponseData {
 	data: any;
 }
 
-class HtttpRequest {
+class HttpRequest {
 	// 合并配置项
 	private mergeConfig(...configs: AxiosRequestConfig[]): AxiosRequestConfig {
 		return Object.assign({}, ...configs);
 	}
 
 	// 设置get请求别名
-	public get(url: string, config: AxiosRequestConfig = {}): AxiosPromise {
-		const newConfig = this.mergeConfig(config, { url, method: 'GET' });
+	public get(url: string, data: any = {}, config: AxiosRequestConfig = {}): AxiosPromise {
+		const newConfig = this.mergeConfig(config, { url, data, method: 'GET' });
 		return this.request(newConfig);
 	}
 
 	// 设置post请求别名
-	public post(url: string, data: any = {}, config: AxiosRequestConfig = {}): AxiosPromise {
-		const newConfig = this.mergeConfig(config, { url, method: 'POST' });
+	public post(url: string, params: any = {}, config: AxiosRequestConfig = {}): AxiosPromise {
+
+		const newConfig = this.mergeConfig(config, { url, params, method: 'POST' });
+		console.log(newConfig);
 		return this.request(newConfig);
 	}
 
@@ -71,4 +73,4 @@ class HtttpRequest {
 	}
 }
 
-export default HtttpRequest;
+export default HttpRequest;

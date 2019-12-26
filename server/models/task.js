@@ -14,6 +14,10 @@ const Task = mongoose.model(
 			type: Number,
 			ref: 'driver',
 		},
+		carNumber: {
+			type: String,
+			ref: 'driver',
+		},
 
 		peopleNumber: {
 			type: Number,
@@ -26,6 +30,7 @@ const Task = mongoose.model(
 					type: String,
 					require: true,
 				},
+				// 身份证号
 				ID: {
 					type: String,
 					require: true,
@@ -37,18 +42,18 @@ const Task = mongoose.model(
 		end: String,
 
 		createTime: {
-			type: Date,
-			default: new Date().getTime(),
+			type: String,
+			default: new Date().toLocaleString(),
 		},
 
 		departureTime: {
-			type: Date,
+			type: String,
 			require: true,
 		},
 
 		// 到达时间设置 status = 已结束
 		arrivalTime: {
-			type: Date,
+			type: String,
 			default: null,
 		},
 
@@ -74,6 +79,7 @@ module.exports.createTask = async (info) => {
 	let task = new Task({
 		userTel: info.userTel,
 		driverTel: info.driverTel,
+		carNumber: info.carNumber,
 		peopleNumber: info.peopleNumber,
 		peopleInfo: info.peopleInfo,
 		start: info.start,
@@ -104,11 +110,14 @@ module.exports.changeStatus = async (id, status) => {
 			case 'peopleInfo':
 				await Task.findByIdAndUpdate(id, { peopleInfo: value });
 				break;
-			case 'arrivalTime':  // 开启 remark
-				await Task.findByIdAndUpdate(id, { arrivalTime: value, remark: true });
+			case 'arrivalTime': 
+				await Task.findByIdAndUpdate(id, { arrivalTime: value, status: '已结束' });
 				break;
 			case 'status':
 				await Task.findByIdAndUpdate(id, { status: value });
+				break;
+			case 'remark': // 评价
+				await Task.findByIdAndUpdate(id, { remark: value });
 				break;
 		}
 	});
@@ -116,4 +125,4 @@ module.exports.changeStatus = async (id, status) => {
 
 module.exports.deleteTask = async (id) => {
 	return await Task.findByIdAndRemove(id);
-}
+};
