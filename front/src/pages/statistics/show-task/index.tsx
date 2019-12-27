@@ -68,10 +68,8 @@ export const ShowTaskModal = function(...rest: any[]) {
 		});
 	});
 
-	console.log('showtask data: ', data);
-
 	data.map((item: any) => {
-		item.name = task.name;
+		return item.name = task.name;
 	});
 
 	const modal = Modal.info(data);

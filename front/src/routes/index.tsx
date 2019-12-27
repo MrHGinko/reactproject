@@ -14,7 +14,6 @@ const routes: RouteConfig[] = [
 		component: lazy(() => import('../pages/common/home')),
 		exact: true,
 		breadcrumb: [{ title: ID.breadcrumb_home }],
-		permission: ['小二', '财务'],
 	},
 
 	// schedule
@@ -22,25 +21,21 @@ const routes: RouteConfig[] = [
 		path: '/schedule/addorder',
 		component: lazy(() => import('../pages/schedule/schedule-addorder')),
 		breadcrumb: [{ title: ID.sider_schedule }, { title: ID.sider_scheduleAddOrder }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/schedule/car',
 		component: lazy(() => import('../pages/schedule/schedule-car')),
 		breadcrumb: [{ title: ID.sider_schedule }, { title: ID.sider_scheduleCar }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/schedule/chargeback',
 		component: lazy(() => import('../pages/schedule/schedule-chargeback')),
 		breadcrumb: [{ title: ID.sider_schedule }, { title: ID.sider_scheduleChargeBack }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/schedule/rulesetting',
 		component: lazy(() => import('../pages/schedule/schedule-rulesetting')),
 		breadcrumb: [{ title: ID.sider_schedule }, { title: ID.sider_scheduleRuleSetting }],
-		permission: ['小二', '财务'],
 	},
 
 	// Plan
@@ -51,13 +46,11 @@ const routes: RouteConfig[] = [
 		exact: true,
 		component: lazy(() => import('../pages/plan/plan-departure')),
 		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planDeparture }],
-		permission: ['财务'],
 	},
 	{
 		path: '/plan/rushhour',
 		component: lazy(() => import('../pages/plan/plan-rushhour')),
 		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planRushHour }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/plan/departure/addplan',
@@ -67,7 +60,6 @@ const routes: RouteConfig[] = [
 			{ title: ID.sider_planDeparture, to: '/plan/departure' },
 			{ title: ID.sider_planAddPlan },
 		],
-		permission: ['小二', '财务'],
 	},
 
 	// statistics
@@ -75,19 +67,16 @@ const routes: RouteConfig[] = [
 		path: '/statistics/car',
 		component: lazy(() => import('../pages/statistics/statistics-car')),
 		breadcrumb: [{ title: ID.sider_statistics }, { title: ID.sider_statisticsCar }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/statistics/member',
 		component: lazy(() => import('../pages/statistics/statistics-member')),
 		breadcrumb: [{ title: ID.sider_statistics }, { title: ID.sider_statisticsMember }],
-		permission: ['小二', '财务'],
 	},
 	{
 		path: '/statistics/order',
 		component: lazy(() => import('../pages/statistics/statistics-order')),
 		breadcrumb: [{ title: ID.sider_statistics }, { title: ID.sider_statisticsOrder }],
-		permission: ['小二', '财务'],
 	},
 
 	//错误页面

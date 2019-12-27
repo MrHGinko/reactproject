@@ -14,6 +14,9 @@ import { LocaleProvider } from './config/locale';
 const { Content } = Layout;
 
 const AppLayout: React.FC<{}> = function AppLayout() {
+
+	
+
 	const role = useSelector((state) =>
 		(state as any)
 			.get('root')
@@ -54,8 +57,6 @@ const App: React.FC<{}> = function App() {
 	const isLogin = useSelector((state) => {
 		return (state as any).get('root').get('isLogin');
 	});
-
-	console.log(isLogin);
 
 	// 判断语言
 	const localeJSON = useMemo(() => {

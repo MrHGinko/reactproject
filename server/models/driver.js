@@ -69,5 +69,5 @@ module.exports.addTask = async (id, task) => {
 
 	// 还需要修改对应订单状态会 待发车
 	// 同时自身状态改为 忙碌
-	return await Driver.findByIdAndUpdate(id, { taskList: taskList });
+	return await Driver.findByIdAndUpdate(id, { taskList: taskList, status: 'busy' });
 };

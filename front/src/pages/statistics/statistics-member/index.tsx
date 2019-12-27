@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect, memo } from 'react';
-import { Modal, Button, Table, Input, Rate, message } from 'antd';
+import React, { useEffect } from 'react';
+import { Modal, Button, Table, Input, Rate, message, Form, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserList, setComment } from '../../../store/models/user';
 import ShowTable from '../../../components/show-table';
@@ -7,6 +7,9 @@ import { getTaskList } from '../../../store/models/task';
 import { ShowTaskModal } from '../show-task';
 
 import './style.scss';
+
+const { Option } = Select;
+const InputGroup = Input.Group;
 
 const StatisticsMember: React.FC<{}> = function StatisticsMember(this: any) {
 	// 评价信息
@@ -27,6 +30,7 @@ const StatisticsMember: React.FC<{}> = function StatisticsMember(this: any) {
 			title: '评价信息',
 			dataIndex: 'text',
 			key: 'text',
+			width: 350,
 			render: (text: any, record: any) => {
 				let dom = null;
 				if (!record.remark)
@@ -78,8 +82,7 @@ const StatisticsMember: React.FC<{}> = function StatisticsMember(this: any) {
 	];
 
 	const requestComment = function(record: any) {
-		
-		if (comment.text == '' || comment.score == 0) {
+		if (comment.text === '' || comment.score === 0) {
 			message.error('需要输入评价以及评分');
 			return;
 		}
@@ -92,13 +95,11 @@ const StatisticsMember: React.FC<{}> = function StatisticsMember(this: any) {
 
 	// comment
 	const showCommentModal = function(data: any) {
-
 		comment.user = data._id;
-		console.log(comment);
 		const modal = Modal.info(data);
 
 		modal.update({
-			width: 800,
+			width: 1000,
 			maskClosable: true,
 			title: '您的评价',
 			content: (
@@ -186,10 +187,80 @@ const StatisticsMember: React.FC<{}> = function StatisticsMember(this: any) {
 	// 注意: state返回的是index下的reducer, user是子模块, 因此这里需要两层user获取到user仓库下的user(数据)
 	let userList = useSelector((state) => (state as any).getIn(['user', 'user']));
 	const status = useSelector((state) => (state as any).getIn(['user', 'status']));
-	console.log(userList);
 
 	return (
 		<div id='statistics-member'>
+			<Form layout='inline'>
+				<Form.Item label='手机号码'>
+					<Input placeholder='' />
+				</Form.Item>
+
+				<Form.Item label='账号状态'>
+					<Select defaultValue='全部' style={{ width: 120 }} /*nChange={handleChange}*/>
+						<Option value='全部'>全部</Option>
+						<Option value='正常'>正常</Option>
+						<Option value='关闭'>关闭</Option>
+					</Select>
+				</Form.Item>
+				<Form.Item label='呼叫次数: '>
+					<InputGroup compact style={{ display: 'inline-block', width: 'auto' }}>
+						<Input
+							style={{
+								width: 100,
+								textAlign: 'center',
+								borderRadius: '4px 0 0 4px',
+							}}
+							placeholder='Minimum'
+						/>
+
+						<Input
+							style={{
+								width: 32,
+								pointerEvents: 'none',
+								backgroundColor: '#fff',
+								textAlign: 'center',
+							}}
+							placeholder='~'
+							disabled
+						/>
+						<Input
+							style={{ width: 100, textAlign: 'center' }}
+							placeholder='Maximum'
+						/>
+					</InputGroup>
+				</Form.Item>
+
+				<Form.Item label='消费金额: '>
+					<InputGroup compact style={{ display: 'inline-block', width: 'auto' }}>
+						<Input
+							style={{
+								width: 100,
+								textAlign: 'center',
+								borderRadius: '4px 0 0 4px',
+							}}
+							placeholder='Minimum'
+						/>
+
+						<Input
+							style={{
+								width: 32,
+								pointerEvents: 'none',
+								backgroundColor: '#fff',
+								textAlign: 'center',
+							}}
+							placeholder='~'
+							disabled
+						/>
+						<Input
+							style={{ width: 100, textAlign: 'center' }}
+							placeholder='Maximum'
+						/>
+					</InputGroup>
+				</Form.Item>
+				<Form.Item>
+					<Button type='primary'>查询</Button>
+				</Form.Item>
+			</Form>
 			<ShowTable status={status} columns={columns} data={userList} />
 		</div>
 	);

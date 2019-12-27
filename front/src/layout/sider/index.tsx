@@ -22,6 +22,7 @@ const AppSider: React.FC<{}> = function AppSider() {
 
 	// const formatLanguage = useFormatLanguage();
 
+	console.log(ids);
 	return (
 		<Sider width={200} style={{ background: '#fff' }}>
 			<Menu

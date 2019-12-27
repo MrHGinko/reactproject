@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import { Modal, Button, Table, Popover } from 'antd';
+import React, { useEffect, memo } from 'react';
+import { Modal, Button, Table, Popover, Form, Input, DatePicker } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTaskList, setArrivalTime } from '../../../store/models/task';
 import ShowTable from '../../../components/show-table';
 
 import './style.scss';
+
+const { RangePicker } = DatePicker;
 
 const peopleColumn = [
 	{
@@ -24,7 +26,7 @@ const peopleColumn = [
 	},
 ];
 
-const StatisticsOrder: React.FC<{}> = function StatisticsOrder(this: any) {
+const StatisticsOrder: React.FC<{}> = memo(function StatisticsOrder(this: any) {
 	const columns = [
 		{
 			title: '订单号码',
@@ -56,14 +58,18 @@ const StatisticsOrder: React.FC<{}> = function StatisticsOrder(this: any) {
 			key: 'arrivalTime',
 			width: 150,
 			render: (text: any, record: any) => {
-				if(text) {
-					return <span>{text}</span>
-				}else {
+				if (text) {
+					return <span>{text}</span>;
+				} else {
 					return (
-						<Popover placement="right" content='点击更改到达状态, 并以当前时间作为到达时间'>
-							<Button type='primary' onClick={timeModal.bind(this, record)}>到达</Button>
+						<Popover
+							placement='right'
+							content='点击更改到达状态, 并以当前时间作为到达时间'>
+							<Button type='primary' onClick={timeModal.bind(this, record)}>
+								到达
+							</Button>
 						</Popover>
-					)
+					);
 				}
 			},
 		},
@@ -133,7 +139,6 @@ const StatisticsOrder: React.FC<{}> = function StatisticsOrder(this: any) {
 	];
 
 	const timeModal = function(data: any) {
-		console.log(data);
 		const modal = Modal.confirm(data);
 
 		modal.update({
@@ -153,12 +158,11 @@ const StatisticsOrder: React.FC<{}> = function StatisticsOrder(this: any) {
 			},
 			onCancel() {
 				modal.destroy();
-			}
+			},
 		});
-	}
+	};
 
 	const showPersonInfoModal = function(data: any) {
-		console.log(data);
 		const modal = Modal.info(data);
 
 		modal.update({
@@ -187,13 +191,65 @@ const StatisticsOrder: React.FC<{}> = function StatisticsOrder(this: any) {
 	// 注意: state返回的是index下的reducer, user是子模块, 因此这里需要两层user获取到user仓库下的user(数据)
 	let taskList = useSelector((state) => (state as any).getIn(['task', 'task']));
 	const status = useSelector((state) => (state as any).getIn(['task', 'status']));
-	console.log(taskList);
+
+	function onChange(value: any, dateString: any) {
+		console.log('Selected Time: ', value);
+		console.log('Formatted Selected Time: ', dateString);
+	}
+
+	function onOk(value: any) {
+		console.log('onOk: ', value);
+	}
 
 	return (
 		<div id='statistics-order'>
+			<Form layout='inline'>
+				<Form.Item label='车牌号码'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='发车时间'>
+					<RangePicker
+						showTime={{ format: 'HH:mm' }}
+						format='YYYY-MM-DD HH:mm'
+						placeholder={['Start Time', 'End Time']}
+						onChange={onChange}
+						onOk={onOk}
+					/>
+				</Form.Item>
+				<Form.Item label='下单时间'>
+					<RangePicker
+						showTime={{ format: 'HH:mm' }}
+						format='YYYY-MM-DD HH:mm'
+						placeholder={['Start Time', 'End Time']}
+						onChange={onChange}
+						onOk={onOk}
+					/>
+				</Form.Item>
+				<Form.Item label='始发地'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='目的地'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='会员手机'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='司机姓名'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='司机电话'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item label='支付方式'>
+					<Input placeholder='' />
+				</Form.Item>
+				<Form.Item>
+					<Button type='primary'>Submit</Button>
+				</Form.Item>
+			</Form>
 			<ShowTable status={status} columns={columns} data={taskList} />
 		</div>
 	);
-};
+});
 
 export default StatisticsOrder;

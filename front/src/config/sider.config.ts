@@ -23,22 +23,22 @@ const SiderConfig: SiderConfigInterface[] = [
 		icon: 'pie-chart',
 		children: [
 			{
-				id: 'schedule_car',
+				id: 'schedule-car',
 				title: '车辆调度',
 				path: '/schedule/car',
 			},
 			{
-				id: 'schedule_addOrder',
+				id: 'schedule-addOrder',
 				title: '补单管理',
 				path: '/schedule/addorder',
 			},
 			{
-				id: 'schedule_chargeBack',
+				id: 'schedule-chargeBack',
 				title: '退单管理',
 				path: '/schedule/chargeback',
 			},
 			{
-				id: 'schedule_ruleSetting',
+				id: 'schedule-ruleSetting',
 				title: '退单规则设置',
 				path: '/schedule/rulesetting',
 			}
@@ -50,12 +50,12 @@ const SiderConfig: SiderConfigInterface[] = [
 		icon: 'unordered-list',
 		children: [
 			{
-				id: 'plan_departure',
+				id: 'plan-departure',
 				title: '发车计划',
 				path: '/plan/departure'
 			},
 			{
-				id: 'plan_rushHour',
+				id: 'plan-rushHour',
 				title: '高峰计划',
 				path: '/plan/rushhour'
 			}
@@ -67,17 +67,17 @@ const SiderConfig: SiderConfigInterface[] = [
 		icon: 'pie-chart',
 		children: [
 			{
-				id: 'statistics_order',
+				id: 'statistics-order',
 				title: '订单统计',
 				path: '/statistics/order'
 			},
 			{
-				id: 'statistics_member',
+				id: 'statistics-member',
 				title: '会员统计',
 				path: '/statistics/member'
 			},
 			{
-				id: 'statistics_car',
+				id: 'statistics-car',
 				title: '车辆统计',
 				path: '/statistics/car'
 			}
