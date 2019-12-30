@@ -27,7 +27,6 @@ export default function useRouteInfo(){
       //第1个id需要计算
       const match = siderConfig.find(item=>item.id === ids[0]);
 
-      console.log(match)
       
       if(match){
         ids[1] = match.children.length === 1 ? match.children[0].id : `${ids[0]}-${ids[1]}`;

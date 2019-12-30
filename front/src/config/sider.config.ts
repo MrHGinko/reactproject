@@ -50,12 +50,12 @@ const SiderConfig: SiderConfigInterface[] = [
 		icon: 'unordered-list',
 		children: [
 			{
-				id: 'plan_departure',
+				id: 'plan-departure',
 				title: '发车计划',
 				path: '/plan/departure'
 			},
 			{
-				id: 'plan_rushHour',
+				id: 'plan-rushhour',
 				title: '高峰计划',
 				path: '/plan/rushhour'
 			}
@@ -67,7 +67,7 @@ const SiderConfig: SiderConfigInterface[] = [
 		icon: 'unordered-list',
 		children: [
 			{
-				id: 'user',
+				id: 'addtional-user',
 				title: '用户注册',
 				path: '/addtional/user'
 			},

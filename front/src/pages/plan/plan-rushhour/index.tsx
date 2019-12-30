@@ -8,32 +8,38 @@ const PlanRushHour: React.FC<{}> = function PlanRushHour(){
   const columns = [
     {
       title: '计划名称',
-      dataIndex: 'planName'
+      dataIndex: 'planName',
+      width: 200
     },
     {
       title: '发车时间',
-      dataIndex: 'dispatchTime'
+      dataIndex: 'dispatchTime',
+      width: 200
     },
     {
       title: '拼车单价',
-      dataIndex: 'carpollPrice'
+      dataIndex: 'carpollPrice',
+      width: 120
     },
     {
       title: '包车价格',
-      dataIndex: 'charterPrice'
+      dataIndex: 'charterPrice',
+      width: 120
     },
     {
       title: '备注',
-      dataIndex: 'remarks'
+      dataIndex: 'remarks',
+      width: 120
     },
     {
       title: '操作',
-      dataIndex: 'operate'
+      dataIndex: 'operate',
+      width: 120
     }
   ];
 
   const data = [];
-  for (let i = 0; i < 46; i++) {
+  for (let i = 0; i < 12; i++) {
     data.push({
       planName: '保定(老城)-北京(丰台)',
       dispatchTime:'2019-03-21 12:30',
