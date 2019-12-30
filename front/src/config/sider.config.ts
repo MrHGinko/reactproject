@@ -45,6 +45,23 @@ const SiderConfig: SiderConfigInterface[] = [
 		]
 	},
 	{
+		id: 'plan',
+		root: '计划管理',
+		icon: 'unordered-list',
+		children: [
+			{
+				id: 'plan_departure',
+				title: '发车计划',
+				path: '/plan/departure'
+			},
+			{
+				id: 'plan_rushHour',
+				title: '高峰计划',
+				path: '/plan/rushhour'
+			}
+		]
+	},
+	{
 		id: 'addtional',
 		root: '注册菜单',
 		icon: 'unordered-list',

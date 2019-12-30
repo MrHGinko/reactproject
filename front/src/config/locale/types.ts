@@ -9,6 +9,10 @@ export interface Locale {
 		scheduleChargeBack: string;
 		scheduleRuleSetting: string;
 	
+		plan: string;
+		planDeparture: string;
+		planRushHour: string;
+
 		addtional: string;
 		addtionalUser: string;
 		addtionalDriver: string;

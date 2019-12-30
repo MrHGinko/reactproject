@@ -11,6 +11,10 @@ const locale: Locale = {
 		scheduleChargeBack: 'ChargeBack',
 		scheduleRuleSetting: 'RuleSetting',
 
+		plan: 'plan',
+		planDeparture: 'Departure',
+		planRushHour: 'RushHour',
+
 		addtional: 'regieste',
 		addtionalUser: 'regiesteUser',
 		addtionalDriver: 'regiesteDriver',
