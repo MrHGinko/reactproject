@@ -1,0 +1,28 @@
+.app-header {
+	.logo {
+		width: 240px;
+		height: 36px;
+		margin: 16px 28px 16px 0;
+		float: left;
+		display: flex;
+		align-items: center;
+		.l-text {
+			height: 49px;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+}
+.menu {
+	display: flex;
+	justify-content: flex-end;
+	.title {
+		margin: 0 10px;
+	}
+}
+
+.ant-menu-item .anticon,
+.ant-menu-submenu-title .anticon {
+	margin-right: 0;
+}

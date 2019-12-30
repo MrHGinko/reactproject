@@ -1,0 +1,138 @@
+.allColumn{
+    display: flex;
+    white-space: nowrap;
+    .column-one{
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        margin-right: 20px;
+        label{
+            margin-top: 10px;
+            display: flex;
+            .title{
+                width: 70px;
+                text-align: right;
+                line-height: 32px;
+            }
+            input{
+                width: 240px;
+            }
+            .select{
+                width: 240px;
+            }
+        }
+    }
+    .column-two{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        label{
+            margin-top: 10px;
+            display: flex;
+            .title{
+                width: 70px;
+                text-align: right;
+                line-height: 32px;
+            }
+            input{
+                flex: 1;
+            }
+            .select{
+                flex: 1;
+            }
+            .departure-time{
+                text-align: left;
+                width: 150px;
+                text-align: left;
+                input{
+                    width: 100%;
+                }
+            }
+            .center-line{
+                width: 12px;
+                height: 32px;
+                padding: 0 2px;
+                line-height: 32px;
+                font-size: 14px;
+            }
+        }
+    }
+    .column-three{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        label{
+            margin-top: 10px;
+            display: flex;
+            .title{
+                width: 70px;
+                text-align: right;
+                line-height: 32px;
+            }
+            input{
+                flex: 1;
+            }
+            .select{
+                flex: 1;
+            }
+            .departure-time{
+                text-align: left;
+                width: 150px;
+                text-align: left;
+                input{
+                    width: 100%;
+                }
+            }
+            .center-line{
+                width: 12px;
+                height: 32px;
+                padding: 0 2px;
+                line-height: 32px;
+                font-size: 14px;
+            }
+        }
+    }
+    .column-four{
+        display: flex;
+        flex-direction: column;
+        padding-right: 20px;
+        position: relative;
+        label{
+            margin-top: 10px;
+            display: flex;
+            .title{
+                width: 70px;
+                text-align: right;
+                line-height: 32px;
+            }
+            .select{
+                width: 120px;
+            }
+           
+        }
+        .query{
+            width: 60px;
+            height: 32px;
+            position: absolute;
+            right:20px;
+            bottom: 0;
+            border: none;
+            border-radius: 2px;
+            color: #fff;
+            background: #FFCC00;
+            outline: none;
+        }
+    }
+}
+
+.sendCars{
+    width: 120px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background: #FFCC00;
+    outline: none;
+    font-weight: bold;
+    margin: 10px 0;
+}
