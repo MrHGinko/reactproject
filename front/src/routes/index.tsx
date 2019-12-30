@@ -45,13 +45,11 @@ const routes: RouteConfig[] = [
 		exact: true,
 		component: lazy(() => import('../pages/plan/plan-departure')),
 		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planDeparture }],
-		permission: ['财务'],
 	},
 	{
 		path: '/plan/rushhour',
 		component: lazy(() => import('../pages/plan/plan-rushhour')),
 		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planRushHour }],
-		permission: ['小二', '财务'],
 	},
 
 	// addtional 注册
