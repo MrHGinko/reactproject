@@ -53,3 +53,23 @@ export default (state = immutableState, action: Action) => {
 			return state;
 	}
 };
+
+interface driverInfo {
+	name: string;
+	tel: string;
+
+	carNumber: string;
+	carSeat: number;
+	carType: string;
+}
+
+export const addDriver = (driverInfo: driverInfo): any => {
+	return ajax
+		.post(API.DRIVER_REGISTE, { driverInfo })
+		.then(({ data }) => {
+			return data;
+		})
+		.catch((error) => {
+			return error;
+		});
+};

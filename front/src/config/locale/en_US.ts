@@ -11,11 +11,10 @@ const locale: Locale = {
 		scheduleChargeBack: 'ChargeBack',
 		scheduleRuleSetting: 'RuleSetting',
 
-		plan: 'plan',
-		planDeparture: 'Departure',
-		planRushHour: 'RushHour',
-		planAddPlan: 'AddPlan',
-
+		addtional: 'regieste',
+		addtionalUser: 'regiesteUser',
+		addtionalDriver: 'regiesteDriver',
+	
 		statistics:'statistics',
 		statisticsOrder: 'Order',
 		statisticsMember: 'Member',

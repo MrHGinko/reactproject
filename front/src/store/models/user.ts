@@ -63,7 +63,7 @@ interface comment {
 	text: string;
 	score: number;
 	task: string;
-	user: string
+	user: string;
 }
 
 export const setComment = (comment: comment) => {
@@ -73,5 +73,21 @@ export const setComment = (comment: comment) => {
 		})
 		.catch((error) => {
 			console.log(error);
+		});
+};
+
+interface userInfo {
+	name: string;
+	id: string;
+	tel: string;
+}
+
+export const addUser = (userInfo: userInfo) : any => {
+	return ajax.post(API.USER_REGISTE, {userInfo})
+		.then(({ data }) => {
+			return data;
+		})
+		.catch((error) => {
+			return error;
 		});
 };

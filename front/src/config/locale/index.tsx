@@ -59,6 +59,9 @@ export const ID = {
 	sider_planDeparture: 'sider.planDeparture',
 	sider_planRushHour: 'sider.planRushHour',
 	sider_planAddPlan: 'sider.planAddPlan',
+	sider_addtional: 'sider.addtional',
+	sider_addtionalUser: 'sider.addtionalUser',
+	sider_addtionalDriver: 'sider.addtionalDriver',
 
 	sider_statistics: 'sider.statistics',
 	sider_statisticsOrder: 'sider.statisticsOrder',

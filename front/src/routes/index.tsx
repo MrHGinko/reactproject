@@ -42,24 +42,15 @@ const routes: RouteConfig[] = [
 	// 子路由的配置需提前放置 or 为父路由添加exact: true, 避免父路由提前匹配而导致子路由无法匹配
 
 	{
-		path: '/plan/departure',
+		path: '/addtional/user',
 		exact: true,
-		component: lazy(() => import('../pages/plan/plan-departure')),
-		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planDeparture }],
+		component: lazy(() => import('../pages/addtional/addtional-user')),
+		breadcrumb: [{ title: ID.sider_addtional }, { title: ID.sider_addtionalUser }],
 	},
 	{
-		path: '/plan/rushhour',
-		component: lazy(() => import('../pages/plan/plan-rushhour')),
-		breadcrumb: [{ title: ID.sider_plan }, { title: ID.sider_planRushHour }],
-	},
-	{
-		path: '/plan/departure/addplan',
-		component: lazy(() => import('../pages/plan/plan-addplan')),
-		breadcrumb: [
-			{ title: ID.sider_plan },
-			{ title: ID.sider_planDeparture, to: '/plan/departure' },
-			{ title: ID.sider_planAddPlan },
-		],
+		path: '/addtional/driver',
+		component: lazy(() => import('../pages/addtional/addtional-driver')),
+		breadcrumb: [{ title: ID.sider_addtional  }, { title: ID.sider_addtionalDriver }],
 	},
 
 	// statistics

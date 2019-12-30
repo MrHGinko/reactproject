@@ -8,11 +8,10 @@ export interface Locale {
 		scheduleAddOrder: string;
 		scheduleChargeBack: string;
 		scheduleRuleSetting: string;
-		
-		plan: string;
-		planDeparture: string;
-		planRushHour: string;
-		planAddPlan: string;
+	
+		addtional: string;
+		addtionalUser: string;
+		addtionalDriver: string;
 
 		statistics: string;
 		statisticsOrder: string;

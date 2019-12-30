@@ -44,15 +44,8 @@ router.get('/userList', async (req, res) => {
 		  });
 });
 
-router.get('/userRegiste', (req, res) => {
-	const { info } = req.body;
-	console.log(info);
-
-	// let info = {
-	// 	name: '诸葛亮',
-	// 	id: '212333152202021357',
-	// 	tel: '14512345897',
-	// }
+router.post('/userRegiste', (req, res) => {
+	const info = JSON.parse(req.query.userInfo);
 
 	User.createUser(info)
 		.then(() => {

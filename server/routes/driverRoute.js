@@ -16,9 +16,8 @@ router.get('/driverList', async (req, res) => {
 		  })
 });
 
-router.get('/driverRegiste', (req, res) => {
-	const { info } = req.body;
-	console.log(info);
+router.post('/driverRegiste', (req, res) => {
+	const info = JSON.parse(req.query.driverInfo);
 
 	Driver.addDriver(info)
 		.then(() => {
