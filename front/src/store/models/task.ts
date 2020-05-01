@@ -23,13 +23,7 @@ export const getTaskList = () => (dispatch: Dispatch) => {
 
 	ajax.get(API.TASK_LIST, {})
 		.then(({ data }) => {
-			const result = data.data.map((item: any) => {
-				item.createTime = new Date(item.createTime).toLocaleString();
-				item.departureTime = new Date(item.departureTime).toLocaleString();
-				return item;
-			});
-
-			const action = setTaskData(setTaskType.success, result);
+			const action = setTaskData(setTaskType.success, data.data);
 			dispatch(action);
 		})
 		.catch((error) => {
@@ -67,5 +61,33 @@ export const setArrivalTime = function(id: any, time: any) {
 		})
 		.catch((error) => {
 			console.log(error);
+		});
+};
+
+interface peopleInfo {
+	name: string,
+	tel: string,
+	ID: string
+}
+
+interface taskInfo {
+	userTel: string,
+	driverTel: string,
+	peopleNumber: number,
+	peopleInfo: peopleInfo,
+	start: string,
+	end: string,
+	departureTime: Date,
+	payout: number,
+	payway: string,
+}
+
+export const addTask = (taskInfo: taskInfo) : any => {
+	return ajax.post(API.TASK_REGISTE, {taskInfo})
+		.then(({ data }) => {
+			return data;
+		})
+		.catch((error) => {
+			return error;
 		});
 };

@@ -64,6 +64,16 @@ const routes: RouteConfig[] = [
 		component: lazy(() => import('../pages/addtional/addtional-driver')),
 		breadcrumb: [{ title: ID.sider_addtional  }, { title: ID.sider_addtionalDriver }],
 	},
+	{
+		path: '/addtional/driver',
+		component: lazy(() => import('../pages/addtional/addtional-driver')),
+		breadcrumb: [{ title: ID.sider_addtional  }, { title: ID.sider_addtionalDriver }],
+	},
+	{
+		path: '/addtional/task',
+		component: lazy(() => import('../pages/addtional/addtional-task')),
+		breadcrumb: [{ title: ID.sider_addtional  }, { title: ID.sider_addtionalTask }],
+	},
 
 	// statistics
 	{

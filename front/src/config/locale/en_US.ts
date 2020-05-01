@@ -18,6 +18,7 @@ const locale: Locale = {
 		addtional: 'regieste',
 		addtionalUser: 'regiesteUser',
 		addtionalDriver: 'regiesteDriver',
+		addtionalTask: 'addTask',
 	
 		statistics:'statistics',
 		statisticsOrder: 'Order',

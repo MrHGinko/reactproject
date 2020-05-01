@@ -16,6 +16,7 @@ export interface Locale {
 		addtional: string;
 		addtionalUser: string;
 		addtionalDriver: string;
+		addtionalTask: string;
 
 		statistics: string;
 		statisticsOrder: string;

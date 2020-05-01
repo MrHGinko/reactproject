@@ -6,12 +6,12 @@ const Task = mongoose.model(
 		// _id 订单id由mongoDB自动生成
 
 		userTel: {
-			type: Number,
+			type: String,
 			ref: 'user',
 		},
 
 		driverTel: {
-			type: Number,
+			type: String,
 			ref: 'driver',
 		},
 		carNumber: {

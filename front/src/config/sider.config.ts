@@ -75,6 +75,11 @@ const SiderConfig: SiderConfigInterface[] = [
 				id: 'addtional-driver',
 				title: '司机注册',
 				path: '/addtional/driver'
+			},
+			{
+				id: 'addtional-task',
+				title: '添加订单',
+				path: '/addtional/task',
 			}
 		]
 	},

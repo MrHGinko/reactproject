@@ -30,46 +30,17 @@ router.get('/taskList', async (req, res) => {
 		  });
 });
 
-router.get('/createTask', (req, res) => {
-	const { info } = req.body;
+router.post('/createTask', async (req, res) => {
+	const info = JSON.parse(req.query.taskInfo);
 
-	// let info = {
-	// 	userTel: '14512345897',
-	// 	driverTel: '12344568463',
-	// 	peopleNumber: 2,
-	// 	peopleInfo: [
-	// 		{
-	// 			name: '诸葛一',
-	// 			tel: '12345678912',
-	// 			ID: '123123201911241111',
-	// 		},
-	// 		{
-	// 			name: '诸葛二',
-	// 			tel: '98765432112',
-	// 			ID: '222222202212453333',
-	// 		}
-	// 	],
-	// 	start: '北京南门',
-	// 	end: '北平东门',
-	// 	departureTime: new Date().toLocaleString(),
+	let result = await Task.createTask(info)
+	console.log(result);
 
-	// 	payout: 600,
-	// 	payway: '微信',
-	// };
-
-	Task.createTask(info)
-		.then(() => {
-			res.json({
-				code: 0,
-				message: 'ok',
-			});
-		})
-		.catch((error) => {
-			res.json({
-				code: -1,
-				message: error.message,
-			});
-		});
+	res.json({
+		message: 'ok',
+		code: 0,
+	})
+	// result拿到新增任务的ID 同时绑定到用户与司机上
 });
 
 module.exports = router;

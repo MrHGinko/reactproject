@@ -62,6 +62,7 @@ export const ID = {
 	sider_addtional: 'sider.addtional',
 	sider_addtionalUser: 'sider.addtionalUser',
 	sider_addtionalDriver: 'sider.addtionalDriver',
+	sider_addtionalTask: 'sider.addtionalTask',
 
 	sider_statistics: 'sider.statistics',
 	sider_statisticsOrder: 'sider.statisticsOrder',

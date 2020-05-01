@@ -18,6 +18,7 @@ const locale: Locale = {
 		addtional: '注册菜单',
 		addtionalUser: '用户注册',
 		addtionalDriver: '司机注册',
+		addtionalTask: '添加订单',
 
 		statistics:'统计查询',
 		statisticsOrder: '订单统计',

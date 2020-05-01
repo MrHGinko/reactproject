@@ -1,0 +1,17 @@
+.user {
+	
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	width: 80%;
+	.user-l {
+		flex: 1;
+		box-sizing: border-box;
+		padding-right: 80px;
+	}
+	.user-r {
+		flex: 1;
+		display: flex;
+		align-items: flex-end;
+	}
+}

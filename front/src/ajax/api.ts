@@ -12,6 +12,8 @@ enum API {
 
 	TASK_LIST = '/api/task/taskList',
 
+	TASK_REGISTE = '/api/task/createTask',
+
 	SET_ARRIVALTIME = '/api/task/arrival'
 
 }
